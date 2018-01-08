@@ -1,0 +1,53 @@
+Exercise 9.13
+
+A rational number has two parts: a numerator and a denominator.
+Example: Five-sixths is 5/6. This is approximately .83333.
+Provide assignment, addition, subtraction, multiplication, division and equality.
+Provide a conversion to double.
+Why would people want to use a Rational class?
+
+By definition, both the numerator and denominator are integers.
+
+int numer
+int denom
+
+addition: 
+	multiply n1.numer by n2.denom
+	multiply n1.denom by n2.denom
+	multiply n2.numer by n1.denom
+	multiply n2.denom by n1.denom
+	n3.numer = n1.numer + n2.numer
+	n3.denom = n1.denom
+	return n3
+
+subtraction:
+	multiply n1.numer by n2.denom
+	multiply n1.denom by n2.denom
+	multiply n2.numer by n1.denom
+	multiply n2.denom by n1.denom
+	n3.numer = n1.numer - n2.numer
+	n3.denom = n1.denom
+	return n3
+	
+multiplication:
+	n3.numer = n1.numer * n2.numer
+	n3.denom = n1.denom * n2.denom
+
+division:
+	n3.numer = n1.numer * n2.denom
+	n3.denom = n1.denom * n2.numer
+
+equality:
+	n1.numer * n2.denom == n1.denom * n2.numer
+
+Convert to double by dividing numer by denom.
+
+Why would people want to use a Rational class?
+The Rational class stores a fraction as an exact ratio of two whole numbers.
+With a Rational class, you don't have to worry about how many decimal places you need.
+Also, it is obvious when you arrive at a whole number. 
+Take for example the decimal of 1/3 to ten places, 0.3333333333.
+If the computer multiplies 0.3333333333 by 3, it will come up with 0.9999999999.
+However, if the computer multiplies 1/3 by 3, it will immediately come up with 3/3 or 1.
+In the first case, it is up to the user to interpret 0.9999999999 as really 1.
+This distinction can be important with systems that function automatically.

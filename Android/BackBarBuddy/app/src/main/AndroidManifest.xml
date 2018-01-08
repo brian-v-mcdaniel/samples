@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="org.coursera.sustainableapps.backbarbuddy">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.SearchActivity">
+        </activity>
+        <activity android:name=".activities.AddActivity">
+        </activity>
+        <activity android:name=".activities.ModifyActivity">
+        </activity>
+        <activity android:name=".activities.DeleteActivity">
+        </activity>
+        <activity android:name=".activities.SettingsActivity">
+            <intent-filter>
+                <action android:name="org.coursera.sustainableapps.CURSOR_FINISHED"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".provider.BackBarProvider"
+            android:authorities="org.coursera.sustainableapps.backbarbuddy.provider"
+            android:exported="true"
+            android:multiprocess="true"
+            android:readPermission="android.permission.permRead"
+            android:writePermission="android.permission.permWrite">
+        </provider>
+
+        <service
+            android:name=".activities.SearchService"
+            android:exported="false"/>
+
+        <activity android:name=".activities.CocktailActivity">
+            <intent-filter>
+                <action android:name="org.coursera.sustainableapps.START_COCKTAIL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.DownloadCocktailActivity">
+            <intent-filter>
+                <action android:name="org.coursera.sustainableapps.DOWNLOAD_DATA" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".activities.SearchResultsActivity">
+            <intent-filter>
+                <action android:name="org.coursera.sustainableapps.SEARCH_RESULTS"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.JsonViewerActivity"
+            android:label="@string/title_activity_json_viewer"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="org.coursera.sustainableapps.SHOW_DATA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
